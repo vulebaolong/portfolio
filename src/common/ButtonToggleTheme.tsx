@@ -7,8 +7,6 @@ import IconSun from "./icons/IconSun";
 
 export default function ButtonToggleTheme({ type }: { type: "dark" | "light" }) {
   const { mode, setMode } = useColorScheme();
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => setIsClient(true), []);
   return (
     <Button
       sx={{
@@ -25,7 +23,7 @@ export default function ButtonToggleTheme({ type }: { type: "dark" | "light" }) 
         setMode(type);
       }}
     >
-      {isClient ? type === "light" ? <IconSun /> : <IconMoon /> : <IconMoon />}
+      {type === "light" ? <IconSun mode={mode} /> : <IconMoon mode={mode} />}
     </Button>
   );
 }

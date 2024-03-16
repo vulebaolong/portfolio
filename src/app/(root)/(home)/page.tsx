@@ -1,11 +1,14 @@
-import { titleBase } from "@/app/layout";
+import { getDataHome } from "@/actions/home.action";
+import { titleBase } from "@/app/(root)/layout";
 import Home from "@/components/home/Home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: `${titleBase} | Home`,
+  title: `${titleBase} | Home`,
 };
 
 export default async function HomePage() {
-    return <Home  />;
+  const data = await getDataHome();
+
+  return <Home data={data} />;
 }

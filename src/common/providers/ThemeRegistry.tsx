@@ -14,19 +14,12 @@ type TColor = {
   // input: {
   //   borderColor: string;
   // };
-  // other: {
-  //   color1: string;
-  //   color2: string;
-  //   color3: string;
-  //   color4: string;
-  //   color5: string;
-  //   color6: string;
-  //   color7: string;
-  //   color8: string;
-  //   color9: string;
-  //   opacity1: string;
-  //   opacity2: string;
-  // };
+  colors: {
+    1: string;
+  };
+  boxShadow: {
+    1: string;
+  };
 };
 
 declare module "@mui/material/styles" {
@@ -50,67 +43,25 @@ export default function ThemeRegistry(props: any) {
           light: {
             palette: {
               // primary: { main: "#AD59FB" },
-              background: { paper: "#fff", default: "#fff" },
-              // text: {
-              //   primary: "#444",
-              //   primaryChannel: "",
-              //   secondary: "#666",
-              //   tertiary: "#666",
-              //   color1: "#999",
-              //   color2: "#000",
-              //   color3: "#666",
-              //   color4: "#999",
-              //   color5: "#999",
-              // },
-              // input: {
-              //   borderColor: "#CCC",
-              // },
-              // other: {
-              //   color1: "#EEE",
-              //   color2: "linear-gradient(180deg, #FFF 0%, #F5F5F5 100%), #FFF",
-              //   color3: "linear-gradient(180deg, #FFF 0%, #F5F5F5 100%), #FFF",
-              //   color4: "transparent",
-              //   color5: "rgba(255, 255, 255, 0.50)",
-              //   color6: "#999",
-              //   color7: "linear-gradient(180deg, #FFF 0%, #F5F5F5 100%), #FFF",
-              //   color8: "rgba(255, 255, 255, 0.8)",
-              //   color9: "rgba(255, 255, 255, 0.25)",
-              //   opacity1: "0.3",
-              //   opacity2: "0",
-              // },
+              background: { paper: "rgba(255, 255, 255, 0.9)", default: "rgb(255, 255, 255)" },
+              colors: {
+                1: "rgba(22, 28, 36, 0.9)",
+              },
+              boxShadow: {
+                1: "rgba(145, 158, 171, 0.24) -40px 40px 80px -8px",
+              },
             },
           },
           dark: {
             palette: {
               // primary: { main: "#AD59FB" },
-              background: { paper: "#000", default: "#000" },
-              // text: {
-              //   primary: "#FFF",
-              //   primaryChannel: "",
-              //   secondary: "#999",
-              //   tertiary: "#CCC",
-              //   color1: "#CCC",
-              //   color2: "#fff",
-              //   color3: "#fff",
-              //   color4: "#ffffff66",
-              //   color5: "#fff",
-              // },
-              // input: {
-              //   borderColor: "#444",
-              // },
-              // other: {
-              //   color1: "#444",
-              //   color2: "linear-gradient(180deg, #262027 0%, rgba(32, 35, 39, 0.00) 100%), rgba(0, 0, 0, 0.50)",
-              //   color3: "linear-gradient(180deg, #222 0%, rgba(32, 35, 39, 0.00) 100%), #000",
-              //   color4: "#444",
-              //   color5: "rgba(0, 0, 0, 0.50)",
-              //   color6: "#666",
-              //   color7: "linear-gradient(180deg, #000 0%, #321449 100%)",
-              //   color8: "linear-gradient(180deg, #262027 0%, rgba(32, 35, 39, 0.00) 100%), #000",
-              //   color9: "rgba(0, 0, 0, 0.25)",
-              //   opacity1: "1",
-              //   opacity2: "0.7",
-              // },
+              background: { paper: "rgba(22, 28, 36, 0.9)", default: "rgb(22, 28, 36)" },
+              colors: {
+                1: "rgba(22, 28, 36, 0.9)",
+              },
+              boxShadow: {
+                1: "rgba(0, 0, 0, 0.24) -40px 40px 80px -8px",
+              },
             },
           },
         },

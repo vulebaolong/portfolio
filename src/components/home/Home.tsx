@@ -1,21 +1,15 @@
-import ButtonToggleTheme from "@/common/ButtonToggleTheme";
-import { Stack } from "@mui/material";
+"use client";
 
-export default function Home() {
+import ButtonToggleTheme from "@/common/ButtonToggleTheme";
+import { Box, Stack } from "@mui/material";
+
+export default function Home({ data }: { data: any }) {
+  // console.log(data);
   return (
     <div>
       Home
-      <Stack
-        sx={{
-          flexDirection: "row",
-          gap: "20px",
-          alignItems: "center",
-          ml: "100px",
-        }}
-      >
-        <ButtonToggleTheme type="dark" />
-        <ButtonToggleTheme type="light" />
-      </Stack>
+     
+      <Box sx={{ width: "100%", height: "2000px" }}>123</Box>
     </div>
   );
 }

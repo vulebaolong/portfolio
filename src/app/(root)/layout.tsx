@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow, Inter, Public_Sans } from "next/font/google";
-import "./globals.css";
-import Providers from "@/providers/Provider";
+import "../../common/styles/globals.css";
+import "../../common/styles/animation.css";
+import Providers from "@/common/providers/Provider";
+import MainLayout from "@/common/layouts/MainLayout";
 
 const interFont = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -61,7 +63,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${interFont.variable} ${publicSansFont.variable} ${barlowFont.variable}`}>
       <body className={`${interFont.className}`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <MainLayout>{children}</MainLayout>
+        </Providers>
       </body>
     </html>
   );
