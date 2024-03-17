@@ -24,7 +24,6 @@ export default function DrawerSetting({ openDrawerSetting, onCloseDrawerSetting 
       anchor={"right"}
       open={openDrawerSetting}
       onClose={() => {
-        console.log(123);
         onCloseDrawerSetting(false);
       }}
     >
