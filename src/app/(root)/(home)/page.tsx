@@ -1,10 +1,10 @@
 import { getDataHome } from "@/actions/home.action";
-import { titleBase } from "@/app/(root)/layout";
 import Home from "@/components/home/Home";
+import { TITLE_BASE } from "@/contants/app.contants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: `${titleBase} | Home`,
+  title: `${TITLE_BASE} | Home`,
 };
 
 export default async function HomePage() {
