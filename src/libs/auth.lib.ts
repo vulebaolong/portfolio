@@ -4,9 +4,12 @@ import { cookies } from "next/headers";
 const secretKey = process.env.TOKEN_SECRET;
 const expires = process.env.TOKEN_EXPIRES;
 const key = new TextEncoder().encode(secretKey);
+console.log(key);
 
 export async function createToken(payload: any) {
-  return await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).setIssuedAt().sign(key);
+  const token = await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).sign(new TextEncoder().encode(process.env.TOKEN_SECRET));
+
+  return token;
 }
 
 export async function setToken(user: any) {
@@ -28,7 +31,7 @@ export async function checkToken(): Promise<any> {
   const token = getToken();
   if (!token) return null;
 
-  const { payload } = await jwtVerify(token, key, { algorithms: ["HS256"] });
+  const { payload } = await jwtVerify(token, new TextEncoder().encode(process.env.TOKEN_SECRET));
 
   return payload;
 }
