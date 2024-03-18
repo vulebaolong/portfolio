@@ -33,7 +33,10 @@ export async function checkToken(): Promise<any> {
   const token = getToken();
   if (!token) return null;
 
-  const { payload } = await jwtVerify(token, new TextEncoder().encode(process.env.TOKEN_SECRET));
+  console.log("token", token);
+  console.log("key", key);
+
+  const { payload } = await jwtVerify(token, key);
 
   return payload;
 }
