@@ -7,7 +7,9 @@ const key = new TextEncoder().encode(secretKey);
 console.log(key);
 
 export async function createToken(payload: any) {
-  const token = await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).sign(new TextEncoder().encode(process.env.TOKEN_SECRET));
+  const secretKey = process.env.TOKEN_SECRET;
+  const key = new TextEncoder().encode(secretKey);
+  const token = await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).sign(key);
 
   return token;
 }
