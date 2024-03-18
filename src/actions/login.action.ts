@@ -28,10 +28,7 @@ export const loginAction = async (payload: any) => {
       });
     }
 
-    setToken({
-      name: user.name,
-      email: user.email,
-    });
+    setToken({ id: user._id.toString() });
 
     return jsonParse({
       status: true,

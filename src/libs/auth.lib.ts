@@ -11,6 +11,7 @@ export async function createToken(payload: any) {
 
 export async function setToken(user: any) {
   const token = await createToken(user);
+  console.log("token", token);
   // const oneDay = 24 * 60 * 60 * 1000;
   cookies().set("token", token, {
     expires: Date.now() + Number(expires),
