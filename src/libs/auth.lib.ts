@@ -3,13 +3,15 @@ import { cookies } from "next/headers";
 
 const secretKey = process.env.TOKEN_SECRET;
 const expires = process.env.TOKEN_EXPIRES;
-const key = new TextEncoder().encode(secretKey);
+console.log(secretKey);
+
+const key = new TextEncoder().encode("secretKey");
 console.log(key);
 
 export async function createToken(payload: any) {
   const secretKey = process.env.TOKEN_SECRET;
   const key = new TextEncoder().encode(secretKey);
-  const token = await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).sign(key);
+  const token = await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).sign(new TextEncoder().encode("L"));
 
   return token;
 }
@@ -36,7 +38,7 @@ export async function checkToken(): Promise<any> {
   console.log("token", token);
   console.log("key", key);
 
-  const { payload } = await jwtVerify(token, key);
+  const { payload } = await jwtVerify(token, new TextEncoder().encode("L"));
 
   return payload;
 }
