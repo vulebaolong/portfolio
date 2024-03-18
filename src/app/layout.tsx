@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Barlow, Inter, Public_Sans } from "next/font/google";
 import "../common/styles/animation.css";
 import "../common/styles/globals.css";
-import { TITLE_BASE } from "@/contants/app.contants";
+import { TITLE_BASE } from "@/contants/app.constants";
 
 const interFont = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],

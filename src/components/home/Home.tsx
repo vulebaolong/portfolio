@@ -1,9 +1,6 @@
-"use client";
-
 import { Box } from "@mui/material";
 
 export default function Home({ data }: { data: any }) {
-  console.log(data);
   return (
     <div>
       Home
