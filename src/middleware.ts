@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { ROUTES } from "./contants/route.constant";
-import { checkToken } from "./libs/auth.lib";
 import { toast } from "react-toastify";
+import { ROUTES } from "./contants/route.constant";
+import { getToken } from "./libs/auth.lib";
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
   if (arrPathProtect.includes(pathname)) {
     console.log("kiểm tra" + pathname);
 
-    const user = await checkToken();
+    const user = await getToken();
     console.log("user", user);
     if (!user) {
       toast.error("Chưa đăng nhập");
