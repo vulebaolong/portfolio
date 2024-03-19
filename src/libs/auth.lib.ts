@@ -2,11 +2,11 @@ import { cookies } from "next/headers";
 
 const expires = process.env.TOKEN_EXPIRES;
 
-export async function setToken(userId: string) {
+export const setToken = async (userId: string) => {
   cookies().set("token", userId, {
     expires: Date.now() + Number(expires),
   });
-}
+};
 
 export const getToken = async () => {
   const sessionUserId = cookies().get("token");
@@ -14,6 +14,6 @@ export const getToken = async () => {
   return sessionUserId.value;
 };
 
-export function deleteToken() {
+export const deleteToken = async () => {
   cookies().delete("token");
-}
+};

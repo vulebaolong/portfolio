@@ -28,7 +28,7 @@ export const loginAction = async (payload: any) => {
       });
     }
 
-    setToken(user._id.toString());
+    await setToken(user._id.toString());
 
     return jsonParse({
       status: true,
