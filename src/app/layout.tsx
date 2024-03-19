@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     title: `${TITLE_BASE} | portfolio`,
     description: "Web portfolio by developer long",
     images: ["/meta.png"],
+    url: "https://portfolio-git-main-vulebaolong.vercel.app/"
   },
   twitter: {
     card: "summary_large_image",
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
     apple: "/logo192.png",
   },
   manifest: "/manifest.json",
+  
 };
 
 export default function RootLayout({
