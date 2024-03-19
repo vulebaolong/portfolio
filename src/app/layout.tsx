@@ -38,11 +38,12 @@ export const metadata: Metadata = {
   description: "Web portfolio by developer long",
   openGraph: {
     title: `${TITLE_BASE} | portfolio`,
-    description: "Web portfolio by developer long",
     images: ["/meta.png"],
-    url: "https://portfolio-git-main-vulebaolong.vercel.app/"
+    description: "Web portfolio by developer long",
+    url: "https://portfolio-git-main-vulebaolong.vercel.app/",
   },
   twitter: {
+    images: ["/meta.png"],
     card: "summary_large_image",
     title: `${TITLE_BASE} | portfolio`,
     description: "Web portfolio by developer long",
@@ -53,7 +54,6 @@ export const metadata: Metadata = {
     apple: "/logo192.png",
   },
   manifest: "/manifest.json",
-  
 };
 
 export default function RootLayout({

@@ -48,14 +48,55 @@ export default function DrawerSetting({ openDrawerSetting, onCloseDrawerSetting 
 
       <Stack
         sx={{
-          flexDirection: "row",
-          gap: "20px",
-          alignItems: "center",
-          ml: "100px",
+          gap: "24px",
+          padding: "24px",
         }}
       >
-        <ButtonToggleTheme type="dark" />
-        <ButtonToggleTheme type="light" />
+        <Box>
+          <Typography
+            sx={{
+              margin: "0px 0px 12px",
+              fontSize: "0.75rem",
+              color: "rgb(99, 115, 129)",
+              fontWeight: "600",
+            }}
+          >
+            Mode
+          </Typography>
+          <Stack
+            sx={{
+              flexDirection: "row",
+              gap: "20px",
+              alignItems: "center",
+            }}
+          >
+            <ButtonToggleTheme type="dark" />
+            <ButtonToggleTheme type="light" />
+          </Stack>
+        </Box>
+
+        <Box>
+          <Typography
+            sx={{
+              margin: "0px 0px 12px",
+              fontSize: "0.75rem",
+              color: "rgb(99, 115, 129)",
+              fontWeight: "600",
+            }}
+          >
+            Mode
+          </Typography>
+          <Stack
+            sx={{
+              flexDirection: "row",
+              gap: "20px",
+              alignItems: "center",
+            }}
+          >
+            <ButtonToggleTheme type="dark" />
+            <ButtonToggleTheme type="light" />
+          </Stack>
+        </Box>
       </Stack>
     </Drawer>
   );

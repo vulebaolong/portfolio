@@ -7,6 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ROUTES } from "@/contants/route.constant";
 import { useRouter } from "next/navigation";
+import Logo from "../logo/Logo";
 
 export default function Header() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function Header() {
   };
   return (
     <>
-      <Box sx={{ position: "sticky", top: "0", zIndex: "1", height: "80px", backdropFilter: "blur(4px)" }} component={"header"}>
+      <Box sx={{ position: "sticky", top: "0", zIndex: "1", height: "80px", backdropFilter: "blur(10px)" }} component={"header"}>
         <Container sx={{ height: "100%" }}>
           <Stack
             sx={{
@@ -28,67 +29,35 @@ export default function Header() {
             }}
           >
             {/* LEFT */}
-            <Typography>LOGO</Typography>
-
-            {/* MID */}
-            <Stack sx={{ flexDirection: "row", gap: "10px" }}>
-              {/* <Link href={`${ROUTES.HOME}`}>
-                <Button variant="contained">Home</Button>
-              </Link>
-              <Link href={`${ROUTES.AUTH.LOGIN}`}>
-                <Button variant="contained">Login</Button>
-              </Link>
-              <Link href={`${ROUTES.AUTH.REGISTER}`}>
-                <Button variant="contained">Register</Button>
-              </Link>
-              <Link href={`${ROUTES.DASHBOARD}`}>
-                <Button variant="contained">Dashboard</Button>
-              </Link> */}
-              <Button
-                onClick={() => {
-                  handleNavigate(ROUTES.HOME);
-                }}
-                variant="contained"
-              >
-                Home
-              </Button>
-              <Button
-                onClick={() => {
-                  handleNavigate(ROUTES.AUTH.LOGIN);
-                }}
-                variant="contained"
-              >
-                Login
-              </Button>
-              <Button
-                onClick={() => {
-                  handleNavigate(ROUTES.AUTH.REGISTER);
-                }}
-                variant="contained"
-              >
-                Register
-              </Button>
-              <Button
-                onClick={() => {
-                  handleNavigate(ROUTES.DASHBOARD);
-                }}
-                variant="contained"
-              >
-                Dashboard
-              </Button>
-            </Stack>
+            <Logo />
 
             {/* RIGHT */}
-            <Box>
+            <Stack sx={{ flexDirection: "row", gap: "10px" }}>
+              <Link href={`${ROUTES.HOME}`}>
+                <Button variant="text">Home</Button>
+              </Link>
+              <Link href={`${ROUTES.AUTH.LOGIN}`}>
+                <Button variant="text">Login</Button>
+              </Link>
+              <Link href={`${ROUTES.AUTH.REGISTER}`}>
+                <Button variant="text">Register</Button>
+              </Link>
+              <Link href={`${ROUTES.DASHBOARD}`}>
+                <Button variant="contained">
+                  <Typography sx={{ fontWeight: "700" }}>Dashboard</Typography>
+                </Button>
+              </Link>
+
               <IconButton
                 onClick={() => {
                   setOpenDrawerSetting(true);
                 }}
                 className="spin"
+                color="primary"
               >
                 <IconSetting />
               </IconButton>
-            </Box>
+            </Stack>
           </Stack>
         </Container>
       </Box>
