@@ -1,5 +1,4 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { toast } from "react-toastify";
 import { ROUTES } from "./contants/route.constant";
 import { getToken } from "./libs/auth.lib";
 
@@ -14,8 +13,6 @@ export async function middleware(request: NextRequest) {
     const user = await getToken();
     console.log("user", user);
     if (!user) {
-      toast.error("Chưa đăng nhập");
-      console.log("chưa đăng nhập");
       return NextResponse.redirect(new URL("/", request.url));
     }
   }

@@ -17,7 +17,7 @@ export default function Logo() {
         backgroundPosition: ["0%", "190%"],
       }}
       transition={{
-        duration: 50,
+        duration: 30,
         repeat: Infinity,
         repeatType: "reverse",
       }}

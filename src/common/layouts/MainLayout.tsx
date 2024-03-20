@@ -8,10 +8,16 @@ type TProps = {
 
 export default function MainLayout({ children }: TProps) {
   return (
-    <>
+    <div
+      style={{
+        background: "rgb(32 38 46)",
+        width: "100vw",
+        overflowX: "hidden",
+      }}
+    >
       <Header />
       <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export default function Header() {
   };
   return (
     <>
-      <Box sx={{ position: "sticky", top: "0", zIndex: "1", height: "80px", backdropFilter: "blur(10px)" }} component={"header"}>
+      <Box sx={{ background: "rgba(22, 28, 36, 0.8)", position: "sticky", top: "0", zIndex: "1", height: "80px", backdropFilter: "blur(10px)" }} component={"header"}>
         <Container sx={{ height: "100%" }}>
           <Stack
             sx={{
