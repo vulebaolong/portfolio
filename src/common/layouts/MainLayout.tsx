@@ -16,7 +16,14 @@ export default function MainLayout({ children }: TProps) {
       }}
     >
       <Header />
-      <main>{children}</main>
+      <main
+        style={{
+          background: "linear-gradient(var(--mui-palette-colors-4)) center center / cover no-repeat, url('/images/home/overlay_3.jpg')",
+          backgroundPosition: "center center",
+        }}
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );

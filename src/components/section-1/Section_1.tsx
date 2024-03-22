@@ -1,31 +1,41 @@
 "use client";
 
 import { ROUTES } from "@/contants/route.constant";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { checkClient } from "@/helpers/function.helper";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
+
+let opacity: MotionValue<number> | 0 = 0;
 
 export default function Section_1() {
+  const { scrollY } = useScroll();
+  const isClient = checkClient();
+  const heightSection1 = isClient ? window.innerHeight - 100 : 80;
+
+  const bottom = useTransform(scrollY, (value) => {
+    return -(value / 2);
+  });
+
+  opacity = useTransform(scrollY, [0, heightSection1], [1, 0]);
+  const skewX = useTransform(scrollY, [0, heightSection1], [-16, -30]);
+  const skewY = useTransform(scrollY, [0, heightSection1], [4, 0]);
+
   return (
-    <Box sx={{ height: "calc(100vh - 80px)", position: "relative" }}>
+    <Box sx={{ height: "100vh", position: "relative", pt: "80px", overflow: "hidden" }}>
       <Container>
         <Stack
           sx={{
             flexDirection: "row",
           }}
         >
-          <Box
-            sx={{
-              flexBasis: "50%",
-              pt: "100px",
-              maxWidth: "50%",
-            }}
-          >
+          <motion.div style={{ bottom, opacity, position: "relative", flexBasis: "50%", paddingTop: "100px", maxWidth: "50" }}>
             <Typography
               variant="h2"
               sx={{
+                fontFamily: "var(--font-publicSans)",
                 fontSize: "3rem",
                 fontWeight: "800",
                 lineHeight: "1.33333",
@@ -36,15 +46,15 @@ export default function Section_1() {
             </Typography>
             <motion.h1
               style={{
+                fontFamily: "var(--font-barlow)",
                 WebkitTextFillColor: "transparent",
-                marginBottom: "24px",
                 marginTop: "8px",
+                marginBottom: "24px",
                 lineHeight: "1",
-                letterSpacing: "8px",
+                letterSpacing: "16px",
                 fontWeight: "900",
                 textAlign: "center",
                 fontSize: "6rem",
-                fontFamily: "var(--font-publicSans)",
                 background:
                   "-webkit-linear-gradient(300deg, rgb(0, 167, 111) 0%, rgb(255, 171, 0) 25%, rgb(0, 167, 111) 50%, rgb(255, 171, 0) 75%, rgb(0, 167, 111) 100%) 0% 0% / 400% text",
               }}
@@ -61,6 +71,7 @@ export default function Section_1() {
             </motion.h1>
             <Typography
               sx={{
+                fontFamily: "var(--font-publicSans)",
                 lineBeight: "1.57143",
                 fontSize: "0.875rem",
                 fontWeight: "400",
@@ -104,21 +115,18 @@ export default function Section_1() {
                 </Button>
               </Link>
             </Stack>
-          </Box>
+          </motion.div>
 
-          <Box
-            sx={{
-              flexBasis: "50%",
-            }}
-          >
-            <Stack
-              sx={{
-                flexDirection: "row",
+          <Box style={{ flexBasis: "50%" }}>
+            <motion.div
+              style={{
+                display: "flex",
                 alignItems: "flex-start",
                 height: "150%",
-                position: "absolute",
-                opacity: 1,
-                transform: "skew(-16deg, 4deg)",
+                position: "fixed",
+                opacity,
+                skewX,
+                skewY,
               }}
             >
               <Stack sx={{ position: "relative", width: "344px" }}>
@@ -159,7 +167,7 @@ export default function Section_1() {
                   src="/images/home/dark_1.webp"
                 />
               </Stack>
-              <Stack sx={{ position: "relative", width: "344px" }}>
+              <Stack sx={{ position: "relative", width: "720px" }}>
                 <motion.img
                   style={{
                     position: "absolute",
@@ -197,7 +205,7 @@ export default function Section_1() {
                   src="/images/home/dark_2.webp"
                 />
               </Stack>
-            </Stack>
+            </motion.div>
           </Box>
         </Stack>
       </Container>
@@ -205,7 +213,7 @@ export default function Section_1() {
       <Box
         sx={{
           backdropFilter: "blur(6px)",
-          backgroundColor: "rgb(22, 28, 36)",
+          backgroundColor: "var(--mui-palette-colors-3)",
           bottom: "-5px",
           height: "80px",
           width: "50%",
@@ -217,7 +225,8 @@ export default function Section_1() {
       <Box
         sx={{
           backdropFilter: "blur(6px)",
-          backgroundColor: "rgba(22, 28, 36, 0.48)",
+          backgroundColor: "var(--mui-palette-colors-3)",
+          opacity: "0.48",
           bottom: "-5px",
           height: "80px",
           width: "50%",
@@ -230,7 +239,8 @@ export default function Section_1() {
       <Box
         sx={{
           backdropFilter: "blur(6px)",
-          backgroundColor: "rgba(22, 28, 36, 0.48)",
+          backgroundColor: "var(--mui-palette-colors-3)",
+          opacity: "0.48",
           bottom: "-5px",
           width: "50%",
           position: "absolute",
@@ -243,7 +253,7 @@ export default function Section_1() {
       <Box
         sx={{
           backdropFilter: "blur(6px)",
-          backgroundColor: "rgb(22, 28, 36)",
+          backgroundColor: "var(--mui-palette-colors-3)",
           bottom: "-10px",
           width: "50%",
           position: "absolute",

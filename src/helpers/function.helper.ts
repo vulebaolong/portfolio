@@ -12,3 +12,5 @@ export const isValidObjectId = (id: string): boolean => {
   }
   return false;
 };
+
+export const checkClient = () => typeof window !== "undefined";

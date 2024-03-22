@@ -1,3 +1,5 @@
-p {
+p,
+body,
+button {
   font-family: var(--font-publicSans) !important;
 }

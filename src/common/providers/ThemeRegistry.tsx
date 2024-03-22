@@ -17,6 +17,8 @@ type TColor = {
   colors: {
     1: string;
     2: string;
+    3: string;
+    4: string;
   };
   boxShadow: {
     1: string;
@@ -46,8 +48,13 @@ export default function ThemeRegistry(props: any) {
               primary: { main: "rgb(58, 67, 76)" },
               background: { paper: "rgba(255, 255, 255, 0.9)", default: "rgb(255, 255, 255)" },
               colors: {
-                1: "rgba(22, 28, 36, 0.9)",
+                1: "rgba(255,255,255)",
                 2: "rgba(255,255,255)",
+                3: "rgba(255,255,255)",
+                4: "rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)",
+              },
+              text: {
+                primary: "rgb(33, 43, 54)",
               },
               boxShadow: {
                 1: "rgba(145, 158, 171, 0.24) -40px 40px 80px -8px",
@@ -59,8 +66,13 @@ export default function ThemeRegistry(props: any) {
               primary: { main: "rgb(255, 255, 255)" },
               background: { paper: "rgba(22, 28, 36, 0.9)", default: "rgb(22, 28, 36)" },
               colors: {
-                1: "rgba(22, 28, 36, 0.9)",
+                1: "rgba(22, 28, 36, 0.8)",
                 2: "rgb(33, 43, 54)",
+                3: "rgb(22, 28, 36)",
+                4: "rgba(22, 28, 36, 0.94), rgba(22, 28, 36, 0.94)",
+              },
+              text: {
+                primary: "rgb(255, 255, 255)",
               },
               boxShadow: {
                 1: "rgba(0, 0, 0, 0.24) -40px 40px 80px -8px",
